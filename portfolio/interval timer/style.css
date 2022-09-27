@@ -1,0 +1,169 @@
+
+:root {
+--body-color:white;
+--primary-color:rgb(255, 228, 228);
+--secondary-color: #fff;
+
+--alt-body-color:#fff;
+--alt-primary-color:#fff;
+
+--font-color:rgb(71, 45, 45);
+}
+
+* {
+    border: 0;
+    margin: 0;
+    outline: none;
+}
+body {
+    background-color: rgba(40, 117, 117, 0.363);  /*! zmienić kolory na jakieś tonalne przejścia*/ 
+    display: grid;
+    height: 100vh;
+    place-content: left;
+}
+
+/*! nav_bar*/
+
+.slider-cont {
+    align-items: center;
+    border-radius: 5px 25px 25px 5px;
+    background-color: blueviolet;
+    display: flex;
+    padding: 25px;
+}
+.slider {
+    width: 200px;
+    height: 20px;
+    position: relative;
+}
+.slider input[type="range"] {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 200px;
+    height: 20px;
+    -webkit-appearance: none; /** sprawdzić co to jest*/
+    background-color: transparent;
+    z-index: 99;
+}
+.slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: azure;
+    border: 2ps solid red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.slider input::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+.slider progress {
+    width: 200px;
+    height: 8px;
+    -webkit-appearance: none;
+    position: absolute;
+    top: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.slider progress::-webkit-progress-bar {
+    background: black;
+}
+.slider progress::-webkit-progress-value {
+    background: pink;
+}
+.sliderValue {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    text-align: center;
+    background: white;
+}
+.ham_menu {
+    background: white;
+}
+/*! content 1*/
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+h1 {
+    position: relative;
+    background: var(--body-color);
+    margin-bottom: 1em;
+    display: inline-block;
+    padding: 0 10px;
+}
+.toggle-button-container {
+    width: 50%;
+    float: left;
+}
+button {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 38px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid var(--alt-primary-color);
+    cursor: pointer;
+}
+button:hover {
+    background: var(--primary-color);
+}
+#button-container {
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.toggle-timer {
+	width: 50px;
+	margin: 0 .1em;
+}
+#session-length,
+#break-length {
+	width: 40px;
+	height: 40px;
+	line-height: 37px;
+	margin-bottom: .4em;
+	display: inline-block;
+	background: var(--font-color);
+	color: var(--body-color);
+	border: solid 1px var(--primary-color);
+	border-radius: 50%;
+}
+header {
+	margin-bottom: .4em;
+}
+#countdown,
+span {
+  font-size: 4em;
+  cursor: pointer;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+#countdown-container {
+	padding-top: 1em;
+	display: inline-block;
+  	text-align: center;
+  	margin-bottom: 2em;
+}
+
+.inputSession:focus {
+    color: green;
+    background-color: yellow;
+    width: 50px;
+	margin: 0 .1em;
+}
