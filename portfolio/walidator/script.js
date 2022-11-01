@@ -29,9 +29,30 @@ const checkForm = (input) => {
   });
 };
 
+const checkLenght = (input, min) => {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${input.previousElementSibling.innerText.slice(
+        0,
+        -1
+      )} składa się z ${min} znaków.`
+    );
+  }
+};
+
+const checkPassword = (pass1, pass2) => {
+  if (pass1.value !== pass2.value) {
+    showError(pass2, "Hasła do siebie nie pasują.");
+  }
+};
+
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
   checkForm([username, pass, pass2, email]);
+  checkLenght(username, 3);
+  checkLenght(pass, 8);
+  checkPassword(pass, pass2);
 });
 
 clearBtn.addEventListener("click", (e) => {
@@ -41,5 +62,3 @@ clearBtn.addEventListener("click", (e) => {
     el.value = "";
   });
 });
-
-bhbjh;
