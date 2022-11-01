@@ -47,12 +47,39 @@ const checkPassword = (pass1, pass2) => {
   }
 };
 
+const checkMail = (email) => {
+  const re =
+    /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (re.test(email.value)) {
+    clearError(email);
+  } else {
+    showError(email, "E-mail jest niepoprawny.");
+  }
+};
+
+const checkErrors = () => {
+  const allInputs = document.querySelectorAll(".form-box");
+  let errorCount = 0;
+
+  allInputs.forEach((el) => {
+    if (el.classList.contains("error")) {
+      errorCount++;
+    }
+  });
+
+  if (errorCount === 0) {
+    popup.classList.add("show-popup");
+  }
+};
+
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
   checkForm([username, pass, pass2, email]);
   checkLenght(username, 3);
   checkLenght(pass, 8);
   checkPassword(pass, pass2);
+  checkMail(email);
+  checkErrors();
 });
 
 clearBtn.addEventListener("click", (e) => {
@@ -60,5 +87,6 @@ clearBtn.addEventListener("click", (e) => {
 
   [username, pass, pass2, email].forEach((el) => {
     el.value = "";
+    clearError(el);
   });
 });
