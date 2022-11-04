@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/dc1169d351.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <p class="info">
+        <i class="fa-solid fa-question"></i>
+      </p>
+
+      <h1>Stoper</h1>
+      <p class="stopwatch">0:00</p>
+      <p class="time">0:00</p>
+
+      <div class="buttons">
+        <button class="start"><i class="fa-solid fa-play"></i></button>
+        <button class="pause"><i class="fa-solid fa-circle-pause"></i></button>
+        <button class="stop"><i class="fa-solid fa-stopwatch"></i></button>
+        <button class="reset"><i class="fa-solid fa-x"></i></button>
+        <button class="history">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+        </button>
+      </div>
+      <ul class="time-list"></ul>
+    </div>
+
+    <div class="modal-shadow">
+      <div class="modal">
+        <h3>Instrukcja</h3>
+        <p><i class="fa-solid fa-play"></i> - start</p>
+        <p><i class="fa-solid fa-circle-pause"></i> - pauza</p>
+        <p><i class="fa-solid fa-stopwatch"></i> - stop</p>
+        <p>
+          <i class="fa-solid fa-x"></i> - skasuj wszystko (łącznie z archiwum)
+        </p>
+        <p><strong>archiwum</strong> - zobacz wcześniejsze pomiary</p>
+        <button class="close">Zamknij</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
