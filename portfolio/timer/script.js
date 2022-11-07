@@ -44,7 +44,6 @@ const handleStop = () => {
   if (stopwatch.textContent !== "0:00") {
     time.style.visibility = "visible";
     timesArr.push(stopwatch.textContent);
-    console.log(timesArr);
   }
 
   clearStuff();
@@ -65,13 +64,23 @@ const clearStuff = () => {
 };
 
 const showHistory = () => {
+  timeList.textContent = "";
+  let num = 1;
   timesArr.forEach((time) => {
-    timeList.textContent = "";
     const newTime = document.createElement("li");
-    newTime.innerHTML = `Pomiar nr X: <span>${time}</span>`;
-
+    newTime.innerHTML = `Pomiar nr ${num}: <span>${time}</span>`;
     timeList.appendChild(newTime);
+    num++;
   });
+};
+
+const showModal = () => {
+  if (!(modalShadow.style.display === "block")) {
+    modalShadow.style.display = "block";
+  } else {
+    modalShadow.style.display = "none";
+  }
+  modalShadow.classList.toggle("modal-animation");
 };
 
 startBtb.addEventListener("click", handleStart);
@@ -79,3 +88,8 @@ pauseBtb.addEventListener("click", handlePause);
 stopBtb.addEventListener("click", handleStop);
 resetBtb.addEventListener("click", handleReset);
 historyBtb.addEventListener("click", showHistory);
+infoBtb.addEventListener("click", showModal);
+closeModalBtn.addEventListener("click", showModal);
+window.addEventListener("click", (e) =>
+  e.target === modalShadow ? showModal() : false
+);
