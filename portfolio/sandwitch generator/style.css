@@ -49,9 +49,70 @@ input {
   display: flex;
   background-color: blueviolet;
   width: 100vw;
+  align-items: center;
+  font-size: 50px;
+  flex-direction: column;
+}
+
+.fot-chleb {
+  position: absolute;
+  top: 700px;
+  display: none;
+}
+.fot-maslo {
+  position: absolute;
+  top: 680px;
+}
+.fot-majonez {
+  position: absolute;
+  top: 660px;
+}
+.fot-ketchup {
+  position: absolute;
+  top: 640px;
+}
+.fot-szynka {
+  position: absolute;
+  top: 620px;
+}
+.fot-ser {
+  position: absolute;
+  top: 600px;
+}
+.fot-pomidor {
+  position: absolute;
+  top: 580px;
+}
+.fot-cebula {
+  position: absolute;
+  top: 560px;
+}
+.fot-salata {
+  position: absolute;
+  top: 540px;
+}
+
+.visual-box {
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 120px;
+  height: 70px;
+  font-size: 18px;
+  box-shadow: 0 0 7px rgb(124, 124, 124);
 }
-.visual-box {
-  background-color: brown;
+p {
+  font-weight: 700;
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+.kcal {
+  font-weight: 900;
+  font-size: 25px;
 }
