@@ -15,7 +15,10 @@
       <div class="wrapper">
         <div class="ingredients">
           <ul class="block-list">
-            <li><input type="checkbox" id="chleb" /><span>Chleb</span></li>
+            <li>
+              <input type="checkbox" id="chleb" />
+              <p id="chlebtxt">Chleb</p>
+            </li>
             <li><input type="checkbox" id="maslo" />Masło</li>
             <li><input type="checkbox" id="majonez" />Majonez</li>
             <li><input type="checkbox" id="ketchup" />Ketchup</li>
@@ -41,7 +44,7 @@
       <div class="visual-box">
         <div class="result"></div>
         <p>Ilość kalorii</p>
-        <div class="kcal">10</div>
+        <div class="kcal"><p id="sum"></p></div>
       </div>
     </div>
     <script src="script.js"></script>

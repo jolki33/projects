@@ -107,7 +107,7 @@ input {
   font-size: 18px;
   box-shadow: 0 0 7px rgb(124, 124, 124);
 }
-p {
+.visual-box p {
   font-weight: 700;
   text-decoration: underline;
   margin-bottom: 5px;
