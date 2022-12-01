@@ -1,41 +1,29 @@
-const kcal = [12, 15, 25, 84, 15, 46, 74, 8];
-let chleb = document.querySelector("#chleb");
-const fotoChleb = document.querySelector(".fot-chleb");
+const products = [
+  { id: 1, name: "Chleb", kcal: 17 },
+  { id: 2, name: "Majonez", kcal: 84 },
+  { id: 3, name: "Ketchup", kcal: 18 },
+  { id: 4, name: "Szynka", kcal: 21 },
+  { id: 5, name: "Ser żółty", kcal: 26 },
+  { id: 6, name: "Pomidor", kcal: 33 },
+  { id: 7, name: "Cebula", kcal: 11 },
+  { id: 8, name: "Salata", kcal: 7 },
+];
 
-let maslo = document.querySelector("#maslo");
-const fotoMaslo = document.querySelector(".fot-maslo");
+let template = "";
+products.forEach((product) => {
+  template += `
+  <div class ="ingredients">
+  <input type="checkbox" class="product-input" id="product-${product.id}" value="${product.kcal}">
+  <label for="product-${product.id}">${product.name}</label>
+  </div>
+  `;
+  document.querySelector(".wrapper").innerHTML = template;
+});
 
-const chlebFunk = () => {
-  if (chleb.checked) {
-    fotoChleb.style.display = "block";
-    chlebtxt.style.textDecoration = "line-through";
-    if (sum.innerHTML !== "") {
-      sum.innerHTML.parseInt + kcal[0];
-    } else {
-      sum.innerHTML = kcal[0];
-    }
-  } else {
-    fotoChleb.style.display = "none";
-    chlebtxt.style.textDecoration = "none";
-    sum.innerHTML = "";
-  }
-};
+document.querySelector(".wrapper").insertAdjacentHTML("beforeend", template);
 
-const masloFunk = () => {
-  if (maslo.checked) {
-    fotoMaslo.style.display = "block";
-
-    if (sum.innerHTML !== "") {
-      sum.innerHTML.parseInt + kcal[1];
-    } else {
-      sum.innerHTML = kcal[1];
-    }
-  } else {
-    fotoMaslo.style.display = "none";
-
-    sum.innerHTML = "";
-  }
-};
-
-chleb.addEventListener("click", chlebFunk);
-maslo.addEventListener("click", masloFunk);
+document.querySelectorAll(".product-input").forEach((input) => {
+  input.addEventListener("click", () => {
+    let kcal = [];
+  });
+});

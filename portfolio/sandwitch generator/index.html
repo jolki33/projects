@@ -13,22 +13,7 @@
       <h1>Sandwich Generator</h1>
 
       <div class="wrapper">
-        <div class="ingredients">
-          <ul class="block-list">
-            <li>
-              <input type="checkbox" id="chleb" />
-              <p id="chlebtxt">Chleb</p>
-            </li>
-            <li><input type="checkbox" id="maslo" />Masło</li>
-            <li><input type="checkbox" id="majonez" />Majonez</li>
-            <li><input type="checkbox" id="ketchup" />Ketchup</li>
-            <li><input type="checkbox" id="szynka" />Szynka</li>
-            <li><input type="checkbox" id="ser" />Ser żółty</li>
-            <li><input type="checkbox" id="pomidor" />Pomidor</li>
-            <li><input type="checkbox" id="cebula" />Cebula</li>
-            <li><input type="checkbox" id="salata" />Sałata</li>
-          </ul>
-        </div>
+        <!--here is a templete from js-->
         <div class="sandwich">
           <div class="fot-chleb">1</div>
           <div class="fot-maslo">2</div>
@@ -42,9 +27,8 @@
         </div>
       </div>
       <div class="visual-box">
-        <div class="result"></div>
-        <p>Ilość kalorii</p>
-        <div class="kcal"><p id="sum"></p></div>
+        <div class="result">Ilość kalorii:</div>
+        <div class="kcal"><span id="sum">0</span></div>
       </div>
     </div>
     <script src="script.js"></script>
