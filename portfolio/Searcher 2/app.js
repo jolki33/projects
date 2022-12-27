@@ -1,7 +1,9 @@
 import { renderDashBoard } from "./view-dashboard.js";
+import { renderDetail } from "./view-details.js";
 
 if (window.location.search.includes("?country=")) {
-  console.log("render");
+  renderDetail();
 } else {
+  document.querySelector(".filters").classList.add("active");
   renderDashBoard();
 }

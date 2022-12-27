@@ -44,6 +44,10 @@ header button {
   font-size: 24px;
 }
 .filters {
+  display: none;
+}
+
+.filters.active {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
