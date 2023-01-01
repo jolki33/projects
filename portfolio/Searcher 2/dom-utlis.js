@@ -74,34 +74,40 @@ const createDetailElement = (country) => {
   detailContainerElement.classList.add("detail-container");
   const detailNameElement = document.createElement("strong");
   detailNameElement.innerText = country.name;
+  detailNameElement.classList.add("detail-name");
 
   detailContainerElement.appendChild(flagImgElement);
   detailContentElement.appendChild(detailNameElement);
 
-  detailContentElement.appendChild(
+  const leftColumnElement = document.createElement("div");
+
+  leftColumnElement.appendChild(
     createInfoElement("Native name", country.nativeName)
   );
-  detailContentElement.appendChild(
+  leftColumnElement.appendChild(
     createInfoElement("Population", country.population)
   );
-  detailContentElement.appendChild(createInfoElement("Region", country.region));
-  detailContentElement.appendChild(
+  leftColumnElement.appendChild(createInfoElement("Region", country.region));
+  leftColumnElement.appendChild(
     createInfoElement("Sub region", country.subregion)
   );
-  detailContentElement.appendChild(
-    createInfoElement("Capital", country.capital)
-  );
-  detailContentElement.appendChild(
+  leftColumnElement.appendChild(createInfoElement("Capital", country.capital));
+
+  const rightColumnElement = document.createElement("div");
+  rightColumnElement.appendChild(
     createInfoElement("Top level domain", country.tld)
   );
-  detailContentElement.appendChild(
+  rightColumnElement.appendChild(
     createInfoElement("Currencies", country.currencies)
   );
-  detailContentElement.appendChild(
+  rightColumnElement.appendChild(
     createInfoElement("Languages", country.languages)
   );
 
-  detailContainerElement.appendChild(detailContentElement);
+  rightColumnElement.appendChild(detailContentElement);
+
+  detailContainerElement.appendChild(leftColumnElement);
+  detailContainerElement.appendChild(rightColumnElement);
 
   if (country.borders && country.borders.length > 0) {
     detailContainerElement.appendChild(createBorderCountriesContainer(country));
@@ -121,6 +127,7 @@ const createDetailButton = (text, link) => {
 
 const createBorderCountriesContainer = (country) => {
   const borderCountriesContainerElement = document.createElement("div");
+  borderCountriesContainerElement.classList.add("border-countries-container");
   const labelElement = document.createElement("strong");
   labelElement.innerText = "Border Countries ";
 
