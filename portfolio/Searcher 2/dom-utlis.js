@@ -67,52 +67,72 @@ const createListElement = (countries) => {
 };
 
 const createDetailElement = (country) => {
-  // capital: country.capital && country.capital[0],
-  // population: country.population.toLocaleString(),
-  // name: country.name.common,
-  // nativeName: country.name.nativeName,
-  // code: country.cioc,
-  // region: country.region,
-  // subregion: country.subregion,
-  // flagUrl: country.flags.png,
-  // currencies: country.currencies,
-  // languages: country.languages,
-  // tld: country.tld[0],
   const detailContainerElement = document.createElement("div");
 
   const flagImgElement = createFlageImgElement(country);
+  const detailContentElement = document.createElement("div");
+  detailContainerElement.classList.add("detail-container");
   const detailNameElement = document.createElement("strong");
   detailNameElement.innerText = country.name;
 
   detailContainerElement.appendChild(flagImgElement);
-  detailContainerElement.appendChild(detailNameElement);
+  detailContentElement.appendChild(detailNameElement);
 
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Native name", country.nativeName)
   );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Population", country.population)
   );
-  detailContainerElement.appendChild(
-    createInfoElement("Region", country.region)
-  );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(createInfoElement("Region", country.region));
+  detailContentElement.appendChild(
     createInfoElement("Sub region", country.subregion)
   );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Capital", country.capital)
   );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Top level domain", country.tld)
   );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Currencies", country.currencies)
   );
-  detailContainerElement.appendChild(
+  detailContentElement.appendChild(
     createInfoElement("Languages", country.languages)
   );
 
+  detailContainerElement.appendChild(detailContentElement);
+
+  if (country.borders && country.borders.length > 0) {
+    detailContainerElement.appendChild(createBorderCountriesContainer(country));
+  }
+
   return detailContainerElement;
+};
+
+const createDetailButton = (text, link) => {
+  const anchorElement = document.createElement("a");
+  anchorElement.innerText = text;
+  anchorElement.classList.add("detail-button");
+  anchorElement.href = link;
+
+  return anchorElement;
+};
+
+const createBorderCountriesContainer = (country) => {
+  const borderCountriesContainerElement = document.createElement("div");
+  const labelElement = document.createElement("strong");
+  labelElement.innerText = "Border Countries ";
+
+  borderCountriesContainerElement.appendChild(labelElement);
+
+  country.borders.forEach((border) => {
+    borderCountriesContainerElement.appendChild(
+      createDetailButton(border, `/?country=${border}`)
+    );
+  });
+
+  return borderCountriesContainerElement;
 };
 
 export const renderCountriesList = (countries) => {
@@ -124,5 +144,6 @@ export const renderCountriesList = (countries) => {
 export const renderCountryDetails = (country) => {
   const rootElement = document.querySelector("#root");
   rootElement.innerHTML = "";
+  rootElement.appendChild(createDetailButton("Go Back", "/"));
   rootElement.appendChild(createDetailElement(country));
 };

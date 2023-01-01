@@ -108,3 +108,19 @@ li img {
     grid-template-columns: 1fr;
   }
 }
+
+.detail-button {
+  background: transparent;
+  box-shadow: 0px 0px 10px -5px rgb(31, 32, 43);
+  border-radius: 5px;
+  color: var(--color-text);
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0px 20px;
+  text-decoration: none;
+}
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

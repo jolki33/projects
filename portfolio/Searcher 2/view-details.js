@@ -29,6 +29,7 @@ export const renderDetail = () => {
           .join(", "),
         languages: Object.values(country.languages).join(", "),
         tld: country.tld[0],
+        borders: country.borders,
       };
 
       renderCountryDetails(country);
